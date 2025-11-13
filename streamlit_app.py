@@ -19,6 +19,7 @@ env.build("(deftemplate result (slot name))")
 env.assert_string(f'(result(name "{name}"))')
 env.run()
 
+
 results = []
 for fact in env.facts():
     if fact.template.name == 'result' :
