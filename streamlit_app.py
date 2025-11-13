@@ -5,8 +5,13 @@ import logging
 logging.basicConfig(level=15,format='%(message)s')
 
 env = clips.Environment()
-router = clips.loggingRouter()
-env.add_router(router)
+try:
+    # clipspy exposes a `LoggingRouter` class (capital L). Older examples
+    # may use a different name; guard against that and continue if absent.
+    router = clips.LoggingRouter()
+    env.add_router(router)
+except AttributeError:
+    logging.warning('clips.LoggingRouter not available; continuing without router')
 
 name = st.text_input("Enter your name")
 
