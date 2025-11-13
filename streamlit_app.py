@@ -8,7 +8,6 @@ env = clips.Environment()
 router = clips.loggingRouter()
 env.add_router(router)
 
-
 name = st.text_input("Enter your name")
 
 env.build("(deftemplate result (slot name))")
