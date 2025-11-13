@@ -15,10 +15,10 @@ except AttributeError:
 
 name = st.text_input("Enter your name")
 
+
 env.build("(deftemplate result (slot name))")
 env.assert_string(f'(result(name "{name}"))')
 env.run()
-
 
 results = []
 for fact in env.facts():
